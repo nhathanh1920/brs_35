@@ -21,3 +21,12 @@
 
 en:
   hello: "Hello world"
+  index: "MEVERYTHING"
+  menu_home: "Home"
+  menu_cate: "Categories"
+  menu_book: "Books"
+  menu_review: "Review Posts"
+  menu_user: "Users"
+  menu_request: "Requests"
+  account_setting: "Setting"
+  account_logout: "Log out"
