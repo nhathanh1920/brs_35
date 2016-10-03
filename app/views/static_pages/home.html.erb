@@ -1,74 +1,211 @@
-<div class="row">
-  <div class="col-md-3">
-    <div class="em-wrapper-area02">
-      <div class="menu-wrapper hidden-xs">
-        <div id="menuleftText" class="all_categories">
-          <div class="menuleftText-title">
-            <div class="menuleftText">
-              <span class="em-text-upercase"><%= t "categories" %></span>
-            </div>
-          </div>
+<div class="container">
+  <section>
+    <div id="carousel-example-generic"
+      class="carousel slide" data-ride="carousel">
+      <ol class="carousel-indicators">
+        <li data-target="#carousel-example-generic"
+          data-slide-to="0" class="active"></li>
+        <li data-target="#carousel-example-generic" data-slide-to="1"></li>
+        <li data-target="#carousel-example-generic" data-slide-to="2"></li>
+      </ol>
+      <div class="carousel-inner">
+        <div class="item active">
+          <%= link_to image_tag("user/slide3.jpg"), "#" %>
+        </div>
+        <div class="item">
+          <%= link_to image_tag("user/slide4.jpg"), "#" %>
+        </div>
+        <div class="item">
+          <%= link_to image_tag("user/slide1.jpg"), "#" %>
         </div>
       </div>
+      <a class="left carousel-control"
+        href="#carousel-example-generic" data-slide="prev">
+        <span class="glyphicon glyphicon-chevron-left"></span>
+      </a>
+      <a class="right carousel-control"
+        href="#carousel-example-generic" data-slide="next">
+        <span class="glyphicon glyphicon-chevron-right"></span>
+      </a>
     </div>
+  </section>
+  <div class="container-fluid">
     <div class="row">
-      <ul>
-        <li>
-          <%= link_to t("home"), "#" %>
-        </li>
-      </ul>
-    </div>
-  </div>
-  <div class="col-md-9">
-    <div class="row">
-      <div class="col-sm-6 col-md-4">
-        <div class="thumbnail">
-          <%= link_to image_tag("rails.png", alt: "Rails logo"), "#" %>
-          <div class="caption">
-            <h3>This is book"s name (get from db)</h3>
-            <p>This is book"s content (get from db)</p>
-            <p>
-              <%= link_to t("submit"), "#", class: "btn btn-lg btn-primary" %>
-            </p>
-          </div>
-        </div>
-      </div>
-      <div class="col-sm-6 col-md-4">
-        <div class="thumbnail">
-          <%= link_to image_tag("rails.png", alt: "Rails logo"), "#" %>
-          <div class="caption">
-            <h3>This is book"s name (get from db)</h3>
-            <p>This is book"s content (get from db)</p>
-            <p>
-              <%= link_to t("submit"), "#", class: "btn btn-lg btn-primary" %>
-            </p>
-          </div>
-        </div>
-      </div>
-      <div class="col-sm-6 col-md-4">
-        <div class="thumbnail">
-          <%= link_to image_tag("rails.png", alt: "Rails logo"), "#" %>
-          <div class="caption">
-            <h3>This is book"s name (get from db)</h3>
-            <p>This is book"s content (get from db)</p>
-            <p>
-              <%= link_to t("submit"), "#", class: "btn btn-lg btn-primary" %>
-            </p>
-          </div>
-        </div>
-      </div>
-      <div class="col-sm-6 col-md-4">
-        <div class="thumbnail">
-          <%= link_to image_tag("rails.png", alt: "Rails logo"), "#" %>
-          <div class="caption">
-            <h3>This is book"s name (get from db)</h3>
-            <p>This is book"s content (get from db)</p>
-            <p>
-              <%= link_to t("submit"), "#", class: "btn btn-lg btn-primary" %>
-            </p>
-          </div>
-        </div>
+      <div class="caption">
+        <marquee direction="right"><h2><%= t "project_name" %></h2></marquee>
       </div>
     </div>
   </div>
+  <section>
+    <div class="row products">
+      <div class="col-sm-6 col-md-3">
+        <div class="thumbnail">
+          <%= link_to image_tag("user/book1.jpg"), "#" %>
+          <div class="caption">
+            <h3><%= t "book_name" %></h3>
+            <p><%= t "book_content" %></p>
+            <p>
+              <label><%= t "rate" %></label>
+              <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+            </p>
+            <p>
+              <span class="glyphicon glyphicon-hand-right" aria-hidden="true">
+              </span>
+              <span class="glyphicon glyphicon-heart-empty" aria-hidden="true">
+              </span>
+              <span class="glyphicon glyphicon-eye-open" aria-hidden="true">
+              </span>
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-6 col-md-3">
+        <div class="thumbnail">
+          <%= link_to image_tag("user/book2.jpeg"), "#" %>
+          <div class="caption">
+            <h3><%= t "book_name" %></h3>
+            <p><%= t "book_content" %></p>
+            <p>
+              <label><%= t "rate" %></label>
+              <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+            </p>
+            <p>
+              <span class="glyphicon glyphicon-hand-right" aria-hidden="true">
+              </span>
+              <span class="glyphicon glyphicon-heart-empty" aria-hidden="true">
+              </span>
+              <span class="glyphicon glyphicon-eye-open" aria-hidden="true">
+              </span>
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-6 col-md-3">
+        <div class="thumbnail">
+          <%= link_to image_tag("user/book3.jpg"), "#" %>
+          <div class="caption">
+            <h3><%= t "book_name" %></h3>
+            <p><%= t "book_content" %></p>
+            <p>
+              <label><%= t "rate" %></label>
+              <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+            </p>
+            <p>
+              <span class="glyphicon glyphicon-hand-right" aria-hidden="true">
+              </span>
+              <span class="glyphicon glyphicon-heart-empty" aria-hidden="true">
+              </span>
+              <span class="glyphicon glyphicon-eye-open" aria-hidden="true">
+              </span>
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-6 col-md-3">
+        <div class="thumbnail">
+          <%= link_to image_tag("user/book4.jpg"), "#" %>
+          <div class="caption">
+            <h3><%= t "book_name" %></h3>
+            <p><%= t "book_content" %></p>
+            <p>
+              <label><%= t "rate" %></label>
+              <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+            </p>
+            <p>
+              <span class="glyphicon glyphicon-hand-right" aria-hidden="true">
+              </span>
+              <span class="glyphicon glyphicon-heart-empty" aria-hidden="true">
+              </span>
+              <span class="glyphicon glyphicon-eye-open" aria-hidden="true">
+              </span>
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-6 col-md-3">
+        <div class="thumbnail">
+          <%= link_to image_tag("user/book5.jpg"), "#" %>
+          <div class="caption">
+            <h3><%= t "book_name" %></h3>
+            <p><%= t "book_content" %></p>
+            <p>
+              <label><%= t "rate" %></label>
+              <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+            </p>
+            <p>
+              <span class="glyphicon glyphicon-hand-right" aria-hidden="true">
+              </span>
+              <span class="glyphicon glyphicon-heart-empty" aria-hidden="true">
+              </span>
+              <span class="glyphicon glyphicon-eye-open" aria-hidden="true">
+              </span>
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-6 col-md-3">
+        <div class="thumbnail">
+          <%= link_to image_tag("user/book6.jpg"), "#" %>
+          <div class="caption">
+            <h3><%= t "book_name" %></h3>
+            <p><%= t "book_content" %></p>
+            <p>
+              <label><%= t "rate" %></label>
+              <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+            </p>
+            <p>
+              <span class="glyphicon glyphicon-hand-right" aria-hidden="true">
+              </span>
+              <span class="glyphicon glyphicon-heart-empty" aria-hidden="true">
+              </span>
+              <span class="glyphicon glyphicon-eye-open" aria-hidden="true">
+              </span>
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-6 col-md-3">
+        <div class="thumbnail">
+          <%= link_to image_tag("user/book7.jpg"), "#" %>
+          <div class="caption">
+            <h3><%= t "book_name" %></h3>
+            <p><%= t "book_content" %></p>
+            <p>
+              <label><%= t "rate" %></label>
+              <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+            </p>
+            <p>
+              <span class="glyphicon glyphicon-hand-right" aria-hidden="true">
+              </span>
+              <span class="glyphicon glyphicon-heart-empty" aria-hidden="true">
+              </span>
+              <span class="glyphicon glyphicon-eye-open" aria-hidden="true">
+              </span>
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-6 col-md-3">
+        <div class="thumbnail">
+          <%= link_to image_tag("user/book8.jpg"), "#" %>
+          <div class="caption">
+            <h3><%= t "book_name" %></h3>
+            <p><%= t "book_content" %></p>
+            <p>
+              <label><%= t "rate" %></label>
+              <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+            </p>
+            <p>
+              <span class="glyphicon glyphicon-hand-right" aria-hidden="true">
+              </span>
+              <span class="glyphicon glyphicon-heart-empty" aria-hidden="true">
+              </span>
+              <span class="glyphicon glyphicon-eye-open" aria-hidden="true">
+              </span>
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
 </div>
