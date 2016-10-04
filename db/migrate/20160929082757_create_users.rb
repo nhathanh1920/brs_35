@@ -6,7 +6,7 @@ class CreateUsers < ActiveRecord::Migration[5.0]
       t.string :remember_digest
       t.string :email
       t.string :image
-      t.integer :role
+      t.integer :role, default: 2
 
       t.timestamps
     end

@@ -136,3 +136,23 @@ span.glyphicon.glyphicon-eye-open:hover {
   color: #333;
   margin-right: 20px;
 }
+.signup input, textarea, select, .uneditable-input {
+  border: 1px solid #bbb;
+  width: 100%;
+  margin-bottom: 15px;
+}
+
+.signup input {
+  height: auto !important;
+}
+h1, .h1 {
+  font-size: 36px;
+  text-align: center;
+}
+input.btn.btn-primary {
+  margin: 15px 0px;
+}
+.new_user label {
+  font-weight: bold;
+  font-size: medium;
+}
