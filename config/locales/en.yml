@@ -22,6 +22,7 @@
 en:
   hello: "Hello world"
   project_name: "Framgia's BRS"
+  index: "Framgia's BRS"
   logo_brs: "BRS"
   logo_f: "Framgia"
   menu_home: "Home"
@@ -53,3 +54,4 @@ en:
   rate: "3.5"
   current_user: "Current User's name"
   item_cate: "category's name (get from db)"
+  fake_data: "123123,11"

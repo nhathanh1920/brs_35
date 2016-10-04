@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title><%= t "index" %></title><meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <%= stylesheet_link_tag "application", media: "all",
+      "data-turbolinks-track": true %>
+    <%= javascript_include_tag "application",
+      "data-turbolinks-track": true %>
+    <%= csrf_meta_tags %>
+  </head>
+  <body id="mimin" class="dashboard form-signin-wrapper">
+    <div class="container">
+      <%= form_for :session, url: login_path,
+        html: {class: "form-signin"} do |f| %>
+        <div class="panel periodic-login">
+          <% flash.each do |message_type, message| %>
+            <div class="alert alert-<%= message_type %>"><%= message %></div>
+          <% end %>
+          <div class="panel-body text-center">
+            <h1 class="atomic-symbol"><%= t "logo_brs" %></h1>
+            <p class="element-name"><%= t "logo_f" %></p>
+            <div class="form-group form-animate-text form-group-custom">
+              <%= f.email_field :email, class: "form-text" %>
+              <label><%= t "email_user" %></label>
+            </div>
+            <div class="form-group form-animate-text form-group-custom">
+              <%= f.password_field :password, class: "form-text" %>
+              <%= f.label :password %>
+            </div>
+            <%= f.label :remember_me, class: "pull-left" do %>
+              <%= f.check_box :remember_me, class: "icheck pull-left" %>
+              <span><%= t "remember_me" %></span>
+            <% end %>
+            <%= f.submit t("signin_button"), class: "btn col-md-12" %>
+          </div>
+          <div class="text-center text-center-custom">
+            <%= link_to t("index"), root_path %>
+          </div>
+          <div class="text-center text-center-custom">
+            <%= link_to t("forgot_password"), "#" %>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </body>
+</html>
