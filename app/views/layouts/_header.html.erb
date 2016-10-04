@@ -28,7 +28,11 @@
           <%= t "menu_cate" %>
         </a>
         <ul class="dropdown-menu">
-          <li><a href="#"><%= t "item_cate" %></a></li>
+          <% @categories.each do |category| %>
+            <li>
+              <%= link_to category.name, root_path(category: category.id) %>
+            </li>
+          <% end %>
         </ul>
       </li>
     </ul>
