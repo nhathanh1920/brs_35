@@ -28,7 +28,12 @@
           <%= t "menu_cate" %>
         </a>
         <ul class="dropdown-menu">
-          <li><a href="#"><%= t "item_cate" %></a></li>
+          <li><a href="#"><%= t "item_cate" %></a></li>\
+          <% @categories.each do |category| %>
+          <li>
+            <%= link_to category.name, root_path(category: category.id) %>
+          </li>
+          <% end %>\
         </ul>
       </li>
     </ul>
@@ -60,6 +65,7 @@
           <ul class="dropdown-menu user-dropdown">
             <li><%= link_to t("signin_button"), login_path %></li>
             <li><%= link_to t("account_sign_up"), "/signup" %></li>
+            <li><%= link_to t("account_sign_up"), "#" %></li>
           </ul>
         </li>
       <% end %>

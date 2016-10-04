@@ -56,3 +56,4 @@ en:
   item_cate: "category's name (get from db)"
   fake_data: "123123,11"
   btn_signup: "Create my account"
+  category_nil: "Category nil"
