@@ -12,3 +12,25 @@
 .col-md-12-custom {
   padding:20px
 }
+.table-custom {
+  width: 100%;
+  td {
+    border: 1px solid #ddd !important;
+    vertical-align: middle !important;
+  }
+  th {
+    border: 1px solid #ddd !important;
+    vertical-align: middle !important;
+  }
+}
+.first-column {
+  width: 10%;
+  text-align: center;
+}
+.last-column {
+  width: 20%;
+  text-align: center;
+}
+.custom-div {
+  text-align: right;
+}
