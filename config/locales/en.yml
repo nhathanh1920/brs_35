@@ -56,3 +56,13 @@ en:
   item_cate: "category's name (get from db)"
   fake_data: "123123,11"
   btn_signup: "Create my account"
+  add_button: "Add"
+  reset_button: "Reset"
+  delete_button: "Delete"
+  edit_button: "Edit"
+  no_number: "No"
+  category_name: "Category name"
+  action: "Action"
+  add_new: "Add new"
+  show: "Show"
+

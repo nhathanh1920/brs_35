@@ -106,9 +106,9 @@ ActiveRecord::Schema.define(version: 20160929090812) do
     t.string   "remember_digest"
     t.string   "email"
     t.string   "image"
-    t.integer  "role",            default: 2
-    t.datetime "created_at",                  null: false
-    t.datetime "updated_at",                  null: false
+    t.integer  "role"
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
   end
 
   add_foreign_key "books", "categories"
