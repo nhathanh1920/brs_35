@@ -34,3 +34,14 @@
 .custom-div {
   text-align: right;
 }
+.alert-custom {
+  position: relative;
+}
+.closeNotify {
+  position: absolute;
+  top: 0px;
+  right: 5px;
+}
+a.btn-danger:hover{
+  font-weight: normal;
+}
