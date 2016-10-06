@@ -1939,7 +1939,7 @@ ul li a:focus {
 /*-----Left menu-------*/
 #left-menu{}
 #left-menu .left-bg {
-  background: url('../img/left-bg.png');
+  background-image: url(/assets/admin/left-bg.png);
   background-repeat: repeat-x;
   height: 100px;
   left: 0;
@@ -1951,7 +1951,6 @@ ul li a:focus {
 #left-menu .sub-left-menu {
   background-color: #fff;
   left: 0;
-  padding-top: 50px;
   z-index: 222;
   width: 230px;
   height: 100%;
