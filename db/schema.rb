@@ -109,6 +109,10 @@ ActiveRecord::Schema.define(version: 20161005085700) do
     t.integer  "role",            default: 2
     t.datetime "created_at",                  null: false
     t.datetime "updated_at",                  null: false
+    t.string   "image",           default: "avatar.jpg"
+    t.integer  "role",            default: 2
+    t.datetime "created_at",                             null: false
+    t.datetime "updated_at",                             null: false
   end
 
   add_foreign_key "books", "categories"

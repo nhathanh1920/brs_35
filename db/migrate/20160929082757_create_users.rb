@@ -5,7 +5,7 @@ class CreateUsers < ActiveRecord::Migration[5.0]
       t.string :password_digest
       t.string :remember_digest
       t.string :email
-      t.string :image
+      t.string :image, default: "avatar.jpg"
       t.integer :role, default: 2
 
       t.timestamps

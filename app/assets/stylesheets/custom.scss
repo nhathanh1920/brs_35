@@ -95,6 +95,8 @@
 .footer{
   background: #e0e0e0;
   padding: 15px;
+  position: relative;
+  bottom: 0px;
 }
 span.glyphicon.glyphicon-star {
   font-size: 30px;
@@ -155,4 +157,10 @@ input.btn.btn-primary {
 .new_user label {
   font-weight: bold;
   font-size: medium;
+}
+form#new_user {
+  margin: 30px 0px;
+}
+input#user_name, #user_email, #user_password, #user_password_confirmation {
+  margin-bottom: 15px;
 }
