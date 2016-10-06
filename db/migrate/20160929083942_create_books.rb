@@ -4,7 +4,7 @@ class CreateBooks < ActiveRecord::Migration[5.0]
       t.string :name
       t.text :description
       t.string :image
-      t.string :publish_date
+      t.date :publish_date
       t.string :author
       t.integer :page
       t.float :rating

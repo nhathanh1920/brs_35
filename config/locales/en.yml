@@ -65,4 +65,9 @@ en:
   action: "Action"
   add_new: "Add new"
   show: "Show"
-
+  category_nil: "category not exist"
+  date:
+    formats:
+      default: "%m-%d-%Y"
+      long: "%B %d, %Y"
+      short: "%b %d"
