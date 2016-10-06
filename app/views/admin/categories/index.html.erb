@@ -5,32 +5,37 @@
         <h3><%= t "add_new" %></h3>
       </div>
       <div class="panel-body">
-        <form method="post" action="">
+        <%= form_for @category, url: admin_categories_path,
+          remote: true do |f| %>
           <div class="row">
             <div class="col-md-6">
-              <div class="form-group">
-                <label><%= t "category_name" %></label>
-                <input type="text" class="form-control"
-                  placeholder="<%= t "category_name" %>">
-              </div>
+              <%= f.label :name %>
+              <%= f.text_field :name, placeholder: t("category_name"),
+                class: "form-control reset-input" %>
             </div>
             <div class = "clr"></div>
             <div class="col-md-6 top-20 padding-0">
               <div class="form-group col-md-3">
-                <button class="btn ripple btn-gradient btn-info" type="submit">
+                <%= button_tag type: "submit",
+                  class: "btn ripple btn-gradient btn-info" do %>
                   <div><span><%= t "add_button" %></span></div>
-                </button>
+                <% end %>
               </div>
               <div class="form-group col-md-3">
-                <button class="btn ripple btn-gradient btn-default"
-                  type="reset">
+                <%= button_tag type: "reset",
+                  class: "btn ripple btn-gradient btn-default" do %>
                   <div><span><%= t "reset_button" %></span></div>
-                </button>
+                <% end %>
               </div>
             </div>
-            <div class = "clr"></div>
           </div>
-        </form>
+          <div class="row">
+            <div class="col-md-6 mess-area-add">
+            </div>
+            <div class="col-md-6">
+            </div>
+          </div>
+        <% end %>
       </div>
     </div>
   </div>
@@ -42,6 +47,8 @@
         <h3><%= t "show" %></h3>
       </div>
       <div class="panel-body">
+        <div class="col-md-6 mess-area-du padding-0">
+        </div>
         <div class="responsive-table">
           <table class="table table-striped table-bordered table-custom"
             cellspacing="0">
@@ -52,21 +59,21 @@
                 <th class = "last-column"><%= t "action" %></th>
               </tr>
             </thead>
-            <tbody>
-              <% @categories.each_with_index do |category, index| %>
+            <tbody id = "body_table_data">
+              <% @categories.each do |category| %>
                 <tr>
                   <td class = "first-column">
-                    <%= current_number Settings.per_page, index,
-                      @categories.current_page %>
+                    <%= category.id %>
                   </td>
                   <td><%= category.name %></td>
                   <td class = "last-column">
                     <button class="btn btn-warning btn-mn" value="primary">
                       <%= t "edit_button" %>
                     </button>
-                    <button class="btn btn-danger btn-mn" value="primary">
-                      <%= t "delete_button" %>
-                    </button>
+                    <%= link_to t("delete_button"), admin_category_path(category),
+                       method: :delete, remote: true,
+                       data: {confirm: t("alert_confirm")},
+                       class: "btn btn-danger btn-mn btn-custom" %>
                   </td>
                 </tr>
               <% end %>

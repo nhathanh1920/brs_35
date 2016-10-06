@@ -71,3 +71,6 @@ en:
       default: "%m-%d-%Y"
       long: "%B %d, %Y"
       short: "%b %d"
+  alert_confirm: "You sure?"
+  alert_result: "Done!"
+  record_isnt_exist: "Record isn't exist"

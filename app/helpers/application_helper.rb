@@ -8,8 +8,4 @@ module ApplicationHelper
       page_title + " | " + base_title
     end
   end
-
-  def current_number per_page, index, current_page
-    per_page * (current_page - 1) + index + 1
-  end
 end
