@@ -60,10 +60,13 @@ en:
   reset_button: "Reset"
   delete_button: "Delete"
   edit_button: "Edit"
+  update_button: "Update"
+  search_button: "Search"
   no_number: "No"
   category_name: "Category name"
   action: "Action"
   add_new: "Add new"
+  edit_record: "Edit record"
   show: "Show"
   category_nil: "category not exist"
   date:
