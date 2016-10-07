@@ -30,39 +30,39 @@ Category.create!(name: "Poetry")
 Book.create! name: "book 1", description: "", image: "user/book1",
   publish_date: "2015-10-10", author: "abc",  page: "100", rating: "3.5",
   category_id: "1"
-Book.create! name: "book 1", description: "", image: "user/book1",
+Book.create! name: "book 2", description: "", image: "user/book1",
   publish_date: "2015-10-10", author: "abc" , page: "100", rating: "3.5",
   category_id: "1"
-Book.create! name: "book 1", description: "", image: "user/book1",
+Book.create! name: "book 3", description: "", image: "user/book1",
   publish_date: "2015-10-10", author: "abc",  page: "100", rating: "3.5",
   category_id: "1"
-Book.create! name: "book 1", description: "", image: "user/book1",
+Book.create! name: "book 4", description: "", image: "user/book1",
   publish_date: "2015-10-10", author: "abc" , page: "100", rating: "3.5",
   category_id: "1"
-Book.create! name: "book 2", description: "", image: "user/book2",
+Book.create! name: "book 5", description: "", image: "user/book2",
   publish_date: "2015-10-10", author: "abc",  page: "100", rating: "3.5",
   category_id: "2"
-Book.create! name: "book 2", description: "", image: "user/book2",
+Book.create! name: "book 6", description: "", image: "user/book2",
   publish_date: "2015-10-10", author: "abc",  page: "100", rating: "3.5",
   category_id: "2"
-Book.create! name: "book 2", description: "", image: "user/book2",
+Book.create! name: "book 7", description: "", image: "user/book2",
   publish_date: "2015-10-10", author: "abc",  page: "100", rating: "3.5",
   category_id: "2"
-Book.create! name: "book 2", description: "", image: "user/book2",
+Book.create! name: "book 8", description: "", image: "user/book2",
   publish_date: "2015-10-10", author: "abc",  page: "100", rating: "3.5",
   category_id: "2"
-Book.create! name: "book 3", description: "", image: "user/book3",
+Book.create! name: "book 9", description: "", image: "user/book3",
   publish_date: "2015-10-10", author: "abc",  page: "100", rating: "3.5",
   category_id: "3"
-Book.create! name: "book 3", description: "", image: "user/book3",
+Book.create! name: "book 10", description: "", image: "user/book3",
   publish_date: "2015-10-10", author: "abc",  page: "100", rating: "3.5",
   category_id: "3"
-Book.create! name: "book 3", description: "", image: "user/book3",
+Book.create! name: "book 11", description: "", image: "user/book3",
   publish_date: "2015-10-10", author: "abc",  page: "100", rating: "3.5",
   category_id: "3"
-Book.create! name: "book 3", description: "", image: "user/book3",
+Book.create! name: "book 12", description: "", image: "user/book3",
   publish_date: "2015-10-10", author: "abc",  page: "100", rating: "3.5",
   category_id: "3"
-Book.create! name: "book 4", description: "", image: "user/book4",
+Book.create! name: "book 13", description: "", image: "user/book4",
   publish_date: "2015-10-10", author: "abc",  page: "100", rating: "3.5",
   category_id: "4"

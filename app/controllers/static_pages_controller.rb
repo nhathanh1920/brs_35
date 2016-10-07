@@ -3,7 +3,7 @@ class StaticPagesController < ApplicationController
 
   def home
     if params[:category].blank?
-      @books = Book.newest.paginate page: params[:page],
+      @books = Book.search(params[:search]).newest.paginate page: params[:page],
         per_page: Settings.per_page
     else
       @category = Category.find_by id: params[:category]

@@ -64,6 +64,7 @@ en:
   search_button: "Search"
   no_number: "No"
   category_name: "Category name"
+  book_name: "Book name"
   action: "Action"
   add_new: "Add new"
   edit_record: "Edit record"

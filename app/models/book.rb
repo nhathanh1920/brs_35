@@ -5,4 +5,5 @@ class Book < ApplicationRecord
   has_many :reviews
 
   scope :newest, ->{order created_at: :desc}
+  scope :search, ->search {where("name like ?", "#{search}%")}
 end
