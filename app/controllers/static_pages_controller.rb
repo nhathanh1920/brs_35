@@ -16,9 +16,4 @@ class StaticPagesController < ApplicationController
       end
     end
   end
-
-  private
-  def load_categories
-    @categories = Category.all
-  end
 end

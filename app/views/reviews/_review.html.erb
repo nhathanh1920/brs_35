@@ -1,0 +1,18 @@
+<li>
+  <div class="media">
+    <div class="media-left">
+      <%= link_to image_tag(@review.user.image,
+        class: "media-object"), "#" %>
+    </div>
+    <div class="media-body">
+      <h4 class="media-heading">
+        <strong><%= @review.user.name %></strong>&nbsp;&nbsp;
+        <span>
+          <%= "#{time_ago_in_words(@review.created_at)} #{t("time_ago")}" %>
+        </span>
+      </h4>
+      <p><strong><%= @review.title %></strong></p>
+      <p><%= @review.content %></p>
+    </div>
+  </div>
+</li>

@@ -27,42 +27,31 @@ Category.create!(name: "Travel")
 Category.create!(name: "Teens and YA")
 Category.create!(name: "Poetry")
 
-Book.create! name: "book 1", description: "", image: "user/book1",
-  publish_date: "2015-10-10", author: "abc",  page: "100", rating: "3.5",
-  category_id: "1"
-Book.create! name: "book 2", description: "", image: "user/book1",
-  publish_date: "2015-10-10", author: "abc" , page: "100", rating: "3.5",
-  category_id: "1"
-Book.create! name: "book 3", description: "", image: "user/book1",
-  publish_date: "2015-10-10", author: "abc",  page: "100", rating: "3.5",
-  category_id: "1"
-Book.create! name: "book 4", description: "", image: "user/book1",
-  publish_date: "2015-10-10", author: "abc" , page: "100", rating: "3.5",
-  category_id: "1"
-Book.create! name: "book 5", description: "", image: "user/book2",
-  publish_date: "2015-10-10", author: "abc",  page: "100", rating: "3.5",
-  category_id: "2"
-Book.create! name: "book 6", description: "", image: "user/book2",
-  publish_date: "2015-10-10", author: "abc",  page: "100", rating: "3.5",
-  category_id: "2"
-Book.create! name: "book 7", description: "", image: "user/book2",
-  publish_date: "2015-10-10", author: "abc",  page: "100", rating: "3.5",
-  category_id: "2"
-Book.create! name: "book 8", description: "", image: "user/book2",
-  publish_date: "2015-10-10", author: "abc",  page: "100", rating: "3.5",
-  category_id: "2"
-Book.create! name: "book 9", description: "", image: "user/book3",
-  publish_date: "2015-10-10", author: "abc",  page: "100", rating: "3.5",
-  category_id: "3"
-Book.create! name: "book 10", description: "", image: "user/book3",
-  publish_date: "2015-10-10", author: "abc",  page: "100", rating: "3.5",
-  category_id: "3"
-Book.create! name: "book 11", description: "", image: "user/book3",
-  publish_date: "2015-10-10", author: "abc",  page: "100", rating: "3.5",
-  category_id: "3"
-Book.create! name: "book 12", description: "", image: "user/book3",
-  publish_date: "2015-10-10", author: "abc",  page: "100", rating: "3.5",
-  category_id: "3"
-Book.create! name: "book 13", description: "", image: "user/book4",
-  publish_date: "2015-10-10", author: "abc",  page: "100", rating: "3.5",
-  category_id: "4"
+categories = Category.order(:created_at).take(12)
+publish_date = "2016-10-07"
+url = "http://stackoverflow.com/"
+categories.each do |category|
+  8.times do
+    description = "#{Faker::Hacker.say_something_smart}
+      #{Faker::Hacker.say_something_smart}
+      #{Faker::Hacker.say_something_smart}
+      #{Faker::Hacker.say_something_smart}"
+    author = Faker::Name.name
+    name = Faker::Name.name
+    image = "user/book1.jpg"
+    rating = Faker::Number.between(0, 5)
+    category.books.create!(description: description, name: name,
+      publish_date: publish_date, author: author, image: image,
+      rating: rating, url: url)
+  end
+end
+
+books = Book.order(:created_at).take(12)
+users = User.order(:created_at).take(5)
+books.each do |book|
+  users.each do |user|
+    title = Faker::Hacker.say_something_smart
+    content = Faker::Lorem.paragraph
+    book.reviews.create!(title: title, content: content, user_id: user.id)
+  end
+end

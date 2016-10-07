@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161005085700) do
+ActiveRecord::Schema.define(version: 20160929090812) do
 
   create_table "books", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "name"
@@ -18,6 +18,7 @@ ActiveRecord::Schema.define(version: 20161005085700) do
     t.string   "image"
     t.date     "publish_date"
     t.string   "author"
+    t.string   "url"
     t.integer  "page"
     t.float    "rating",       limit: 24
     t.integer  "category_id"
@@ -105,10 +106,6 @@ ActiveRecord::Schema.define(version: 20161005085700) do
     t.string   "password_digest"
     t.string   "remember_digest"
     t.string   "email"
-    t.string   "image"
-    t.integer  "role",            default: 2
-    t.datetime "created_at",                  null: false
-    t.datetime "updated_at",                  null: false
     t.string   "image",           default: "avatar.jpg"
     t.integer  "role",            default: 2
     t.datetime "created_at",                             null: false

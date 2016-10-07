@@ -1,0 +1,10 @@
+<% if @review.errors.any? %>
+  notify = $(".mess-area-add");
+  notify.html("<%= j render "shared/message_add", object: @review %>");
+<% else %>
+  listreview = $(".list-review");
+  listreview.prepend("<%= j render "reviews/review" %>");
+  notify = $(".mess-area-add");
+  notify.html("<%= j render "shared/message_add", object: @review %>");
+  $(".reset-input").val("");
+<% end %>

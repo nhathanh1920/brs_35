@@ -1,2 +1,4 @@
 remember_me: "1"
 per_page: 4
+rates: [1, 2, 3, 4, 5]
+limit_relate_book: 5
