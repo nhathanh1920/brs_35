@@ -2,9 +2,8 @@
   <td class = "first-column"><%= @category.id %></td>
   <td><%= @category.name %></td>
   <td class = "last-column">
-    <button class="btn btn-warning btn-mn" value="primary">
-      <%= t "edit_button" %>
-    </button>
+    <%= link_to t("edit_button"), edit_admin_category_path(@category),
+      class: "btn btn-warning btn-mn" %>
     <%= link_to t("delete_button"), admin_category_path(@category),
       method: :delete, remote: true,
       data: {confirm: t("alert_confirm")},

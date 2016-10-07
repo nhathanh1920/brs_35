@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   namespace :admin do
     root "static_pages#home"
-    resources :categories, only: [:index, :create, :edit, :destroy, :update]
+    resources :categories, except: [:show]
   end
   root "static_pages#home"
   get "/login", to: "sessions#new"
