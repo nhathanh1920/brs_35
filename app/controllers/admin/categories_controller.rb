@@ -1,11 +1,11 @@
 class Admin::CategoriesController < ApplicationController
   before_action :verify_access
-  before_action :find_categories, only: [:edit, :destroy, :update]
+  before_action :load_category, only: [:destroy, :update, :edit]
   layout "admin_application"
 
   def index
-    @categories = Category.search(params[:search]).newest.paginate page:
-      params[:page], per_page: Settings.per_page
+    @categories = Category.search(params[:search]).newest
+      .paginate page: params[:page], per_page: Settings.per_page
     @category = Category.new
   end
 
@@ -33,6 +33,7 @@ class Admin::CategoriesController < ApplicationController
   end
 
   def destroy
+    @category = Category.find_by id: params[:id]
     unless @category
       respond_to do |format|
         format.js {render "fail_update_or_del.js.erb"}
@@ -50,7 +51,7 @@ class Admin::CategoriesController < ApplicationController
     params.require(:category).permit :name
   end
 
-  def find_categories
+  def load_category
     @category = Category.find_by id: params[:id]
   end
 end
