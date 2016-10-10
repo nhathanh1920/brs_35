@@ -6,6 +6,7 @@ class CreateBooks < ActiveRecord::Migration[5.0]
       t.string :image
       t.date :publish_date
       t.string :author
+      t.string :url
       t.integer :page
       t.float :rating
       t.references :category, foreign_key: true

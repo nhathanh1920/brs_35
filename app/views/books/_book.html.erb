@@ -1,0 +1,9 @@
+<li>
+  <figure>
+    <%= link_to image_tag(book.image, class: "img-thumbnail img-custom"),
+      book, class: "aa-book-img aa-book-img-custom" %>
+    <figcaption>
+      <h4 class="aa-book-title"><%= link_to book.name, book %></h4>
+    </figcaption>
+  </figure>
+</li>

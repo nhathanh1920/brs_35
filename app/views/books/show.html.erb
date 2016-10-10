@@ -1,0 +1,177 @@
+<section id="aa-book-details">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="aa-book-details-area">
+          <div class="aa-book-details-content">
+            <div class="row">
+              <div class="col-md-5 col-sm-5 col-xs-12">
+                <div class="aa-book-view-slider">
+                  <%= image_tag @book.image, class: "img-thumbnail" %>
+                </div>
+              </div>
+              <div class="col-md-7 col-sm-7 col-xs-12">
+                <div class="aa-book-view-content">
+                  <h3><%= @book.name %></h3>
+                  <div class="aa-price-block">
+                    <p class="aa-book-avilability">
+                      <span>
+                        <strong><%= t "book_category" %>: </strong>
+                        <%= @book.category.name %>
+                      </span>
+                    </p>
+                    <p class="aa-book-avilability">
+                      <span>
+                        <strong><%= t "book_author" %>: </strong>
+                        <%= @book.author %>
+                      </span>
+                    </p>
+                    <p class="aa-book-avilability">
+                      <span>
+                        <strong><%= t "book_publish_date" %>: </strong>
+                        <%= l @book.publish_date, format: :default %>
+                      </span>
+                    </p>
+                    <p class="aa-book-avilability">
+                      <span>
+                        <strong><%= t "book_description" %>: </strong>
+                        <p class = "book_description">
+                          <%= @book.description %>
+                        </p>
+                      </span>
+                    </p>
+                    <p class="aa-book-avilability">
+                      <span>
+                        <strong><%= t "book_rating" %>: </strong>
+                        <%= @book.rating %>
+                      </span>
+                    </p>
+                    <div class="aa-product-rating rating">
+                      <% i = 1 %>
+                      <% while i <= @book.rating.floor do %>
+                        <%= show_rating "star-active" %>
+                        <% i += 1 %>
+                      <% end %>
+                      <% while i <= 5 do %>
+                        <%= show_rating "" %>
+                        <% i += 1 %>
+                      <% end %>
+                    </div>
+                    <% if logged_in? %>
+                      <div class="aa-product-rating rating">
+                        <%= form_for [@book, @rate], remote: true do |f| %>
+                          <table class="data-table" id="product-review-table">
+                            <thead>
+                              <tr>
+                                <th>&nbsp;</th>
+                                  <% Settings.rates.each do |rate| %>
+                                    <th><span class="nobr">
+                                      <%= rate %></span>
+                                    </th>
+                                  <% end %>
+                              </tr>
+                            </thead>
+                            <tbody>
+                              <tr>
+                                <th><%= t "book_rate" %></th>
+                                  <% Settings.rates.each do |rate| %>
+                                    <td class="value">
+                                      <%= f.radio_button :rate, rate,
+                                        class: "radio" %>
+                                    </td>
+                                  <% end %>
+                              </tr>
+                            </tbody>
+                          </table>
+                        <% end %>
+                      </div>
+                    <% end %>
+                  </div>
+                  <div class="aa-prod-view-bottom">
+                    <% if logged_in? %>
+                      <%= link_to t("book_favorite"), "#",
+                        class: "aa-add-to-cart-btn" %>
+                    <% end %>
+                    <%= link_to t("book_read"), @book.url,
+                      class: "aa-add-to-cart-btn", target: "_blank" %>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="aa-book-details-bottom">
+            <ul class="nav nav-tabs nav-tabs-custom" id="myTab2">
+              <li><%= link_to t("book_review"), "javascript:;" %></li>
+            </ul>
+            <div class="tab-content">
+              <div class="tab-pane fade in active" id="review">
+                <div class="aa-book-review-area">
+                  <% if @reviews.any? %>
+                    <h4>
+                      <%= "#{@reviews.count}  #{t('book_review_for')}" %>
+                      <strong><%= @book.name %></strong>
+                    </h4>
+                  <% end %>
+                  <ul class="aa-review-nav list-review">
+                    <% @reviews.each do |review| %>
+                      <li>
+                        <div class="media">
+                          <div class="media-left">
+                            <%= link_to image_tag(review.user.image,
+                              class: "media-object"), "#" %>
+                          </div>
+                          <div class="media-body">
+                            <h4 class="media-heading">
+                              <strong><%= review.user.name %></strong>
+                              &nbsp;&nbsp;
+                              <span>
+                                <%= "#{time_ago_in_words(review.created_at)}
+                                  #{t("time_ago")}" %>
+                              </span>
+                            </h4>
+                            <p><strong><%= review.title %></strong></p>
+                            <p><%= review.content %></p>
+                          </div>
+                        </div>
+                      </li>
+                    <% end %>
+                  </ul>
+                  <%= will_paginate @reviews %>
+                  <% if logged_in? %>
+                    <h4><%= t "book_new_review" %></h4>
+                    <div class = "row">
+                      <div class="col-md-6 mess-area-add"></div>
+                    </div>
+                    <%= form_for [@book, @review],
+                      remote: true, html: {class: "aa-review-form"} do |f| %>
+                      <div class="form-group">
+                        <%= f.label :title %>
+                        <%= f.text_field :title,
+                          class: "form-control reset-input" %>
+                      </div>
+                      <div class="form-group">
+                        <%= f.label :content %>
+                        <%= f.text_area :content,
+                          class: "form-control reset-input" %>
+                      </div>
+                      <%= button_tag type: "submit",
+                        class: "btn btn-default aa-review-submit" do %>
+                        <span><%= t "submit_button" %></span>
+                      <% end %>
+                    <% end %>
+                  <% end %>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="aa-book-related-item">
+            <h3><%= t "book_relate" %></h3>
+            <ul class="aa-book-catg">
+              <%= render @books %>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

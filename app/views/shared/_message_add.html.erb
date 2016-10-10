@@ -1,0 +1,10 @@
+<% if object.errors.any? %>
+  <div class="alert alert-danger alert-custom">
+    <button type="button" class="close closeNotify">&times;</button>
+    <% object.errors.full_messages.each do |msg| %>
+      <p><%= msg %></p>
+    <% end %>
+  </div>
+<% else %>
+  <%= render "shared/flash_message" %>
+<% end %>
