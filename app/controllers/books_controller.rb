@@ -4,8 +4,8 @@ class BooksController < ApplicationController
 
   def show
     @books_relate = @book.category.books.except_id(@book.id).newest
-    @reviews = @book.reviews.newest.paginate page: params[:page],
-      per_page: Settings.per_page
+    @reviews = @book.reviews.includes(:user, comments: :user).newest
+      .paginate page: params[:page], per_page: Settings.per_page
     if logged_in?
       @review = @book.reviews.build
       @rate = @book.rates.build

@@ -1,0 +1,8 @@
+<% if @comment.errors.any? %>
+  notify = $('.mess-area-add');
+  notify.html('<%= j render "shared/message_add", object: @comment %>');
+<% else %>
+  $('.list-comment-<%= @review.id %>').
+    prepend('<%= j render "comments/comment" %>');
+  $('.reset-input').val('');
+<% end%>

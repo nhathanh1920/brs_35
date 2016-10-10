@@ -12,7 +12,9 @@ Rails.application.routes.draw do
   post "/signup", to: "users#create"
   resources :users, except: [:destroy]
   resources :books, only: [:index, :show] do
-    resources :reviews
+    resources :reviews do
+      resources :comments
+    end
     resources :rates, except: [:destroy]
   end
 end

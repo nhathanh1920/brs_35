@@ -1,0 +1,10 @@
+<% if @comment.errors.any? %>
+  notify = $('.mess-area-add');
+  notify.html('<%= j render "shared/message_add", object: @comment %>');
+<% else %>
+  var element = document.getElementById('<%= @comment.id %>');
+  element.remove();
+  $('.list-comment-<%= @review.id %>').prepend('<%= j render "comments/comment",
+    book: @book, review: @review, comment: @comment %>');
+  $('.reset-input').val('');
+<% end %>
