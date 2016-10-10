@@ -9,3 +9,6 @@ $(document).on('keyup', 'input#search', function() {
     null, 'script');
   return false;
 });
+$(document).on('keypress', '#my_form_search', function(event) {
+  return event.keyCode != 13;
+});

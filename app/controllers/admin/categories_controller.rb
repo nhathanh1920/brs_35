@@ -19,6 +19,7 @@ class Admin::CategoriesController < ApplicationController
 
   def edit
     unless @category
+      flash[:warning] = t "record_isnt_exist"
       redirect_to admin_categories_path
     end
   end
@@ -33,10 +34,9 @@ class Admin::CategoriesController < ApplicationController
   end
 
   def destroy
-    @category = Category.find_by id: params[:id]
     unless @category
       respond_to do |format|
-        format.js {render "fail_update_or_del.js.erb"}
+        format.js {render "admin/shared/fail_update_or_del.js.erb"}
       end
     else
       @category.destroy
