@@ -1,0 +1,7 @@
+<ul class="list-group">
+  <% @books_search.each do |book_search| %>
+  <li class="list-group-item">
+    <%= link_to book_search.name, book_search %>
+  </li>
+  <% end %>
+</ul>

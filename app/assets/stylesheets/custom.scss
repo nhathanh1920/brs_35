@@ -115,7 +115,7 @@ span.glyphicon.glyphicon-heart-empty {
 }
 span.glyphicon.glyphicon-heart-empty:hover {
   font-size: 30px;
-  color: #c1214b;
+  color: blue;
   margin-right: 30px;
 }
 span.glyphicon.glyphicon-hand-right {
@@ -459,4 +459,16 @@ input#user_name, #user_email, #user_password, #user_password_confirmation {
 }
 .custom-alert {
   position: relative;
+}
+.list-group {
+  background-color: #fff;
+  color: #000;
+  position: absolute;
+  z-index: 99999;
+}
+.action-custom {
+  text-align: center;
+}
+.book_name {
+  font-size: 20px !important;
 }

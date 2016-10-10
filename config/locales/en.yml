@@ -73,7 +73,6 @@ en:
   add_new: "Add new"
   edit_record: "Edit record"
   show: "Show"
-  category_nil: "category not exist"
   date:
     formats:
       default: "%m-%d-%Y"
