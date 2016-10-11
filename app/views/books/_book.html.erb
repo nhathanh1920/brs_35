@@ -1,9 +1,90 @@
-<li>
-  <figure>
-    <%= link_to image_tag(book.image, class: "img-thumbnail img-custom"),
-      book, class: "aa-book-img aa-book-img-custom" %>
-    <figcaption>
-      <h4 class="aa-book-title"><%= link_to book.name, book %></h4>
-    </figcaption>
-  </figure>
-</li>
+<div class="row">
+  <div class="col-md-5 col-sm-5 col-xs-12">
+    <div class="aa-book-view-slider">
+      <%= image_tag @book.image, class: "img-thumbnail" %>
+    </div>
+  </div>
+  <div class="col-md-7 col-sm-7 col-xs-12">
+    <div class="aa-book-view-content">
+      <h3><%= @book.name %></h3>
+      <div class="aa-price-block">
+        <p class="aa-book-avilability">
+          <span>
+            <strong><%= t "book_category" %>: </strong>
+            <%= @book.category.name %>
+          </span>
+        </p>
+        <p class="aa-book-avilability">
+          <span>
+            <strong><%= t "book_author" %>: </strong>
+            <%= @book.author %>
+          </span>
+        </p>
+        <p class="aa-book-avilability">
+          <span>
+            <strong><%= t "book_publish_date" %>: </strong>
+            <%= l @book.publish_date, format: :default %>
+          </span>
+        </p>
+        <p class="aa-book-avilability">
+          <span>
+            <strong><%= t "book_description" %>: </strong>
+            <p class = "book_description">
+              <%= @book.description %>
+            </p>
+          </span>
+        </p>
+        <p class="aa-book-avilability">
+          <span>
+            <strong><%= t "book_rating" %>: </strong>
+            <%= @book.rating %>
+          </span>
+        </p>
+        <div class="aa-product-rating rating">
+          <% i = 1 %>
+          <% while i <= @book.rating.floor do %>
+            <%= show_rating "star-active" %>
+            <% i += 1 %>
+          <% end %>
+          <% while i <= 5 do %>
+            <%= show_rating "" %>
+            <% i += 1 %>
+          <% end %>
+        </div>
+        <% if logged_in? %>
+          <div class="aa-product-rating rating">
+            <%= form_for [@book, @rate], remote: true do |f| %>
+              <table class="data-table" id="product-review-table">
+                <thead>
+                  <tr>
+                    <th>&nbsp;</th>
+                    <% Settings.rates.each do |rate| %>
+                      <th><span class="nobr"><%= rate %></span></th>
+                    <% end %>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <th><%= t "book_rate" %></th>
+                    <% Settings.rates.each do |rate| %>
+                      <td class="value">
+                        <%= f.radio_button :rate, rate, class: "radio" %>
+                      </td>
+                    <% end %>
+                  </tr>
+                </tbody>
+              </table>
+            <% end %>
+          </div>
+        <% end %>
+      </div>
+      <div class="aa-prod-view-bottom">
+        <% if logged_in? %>
+          <%= link_to t("book_favorite"), "#", class: "aa-add-to-cart-btn" %>
+        <% end %>
+        <%= link_to t("book_read"), @book.url,
+          class: "aa-add-to-cart-btn", target: "_blank" %>
+      </div>
+    </div>
+  </div>
+</div>

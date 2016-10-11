@@ -6,9 +6,23 @@ class Book < ApplicationRecord
 
   validates :name, presence: true, length: {maximum: 50}, uniqueness: true
 
-  scope :newest, ->{order created_at: :desc}
-  scope :search, ->search {where("name like ?", "#{search}%")}
+  scope :newest, -> do
+    order(created_at: :desc)
+  end
+  scope :hottest, -> do
+    order(rating: :desc).limit Settings.per_page
+  end
+  scope :search, ->search do
+    where("name like ?", "%#{search}%").limit Settings.limit_book
+  end
   scope :except_id, ->id do
-    where("id != ?", id).limit Settings.limit_relate_book
+    where("id != ?", id).limit Settings.limit_book
+  end
+  scope :by_category, ->id do
+    if id
+      where("category_id != ?", id)
+    else
+      newest
+    end
   end
 end

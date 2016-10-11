@@ -1,14 +1,31 @@
 class BooksController < ApplicationController
-  before_action :load_book
+  before_action :load_book, only: [:show]
   before_action :load_categories
 
   def show
-    @books = @book.category.books.except_id(@book.id).newest
+    @books_relate = @book.category.books.except_id(@book.id).newest
     @reviews = @book.reviews.newest.paginate page: params[:page],
       per_page: Settings.per_page
     if logged_in?
       @review = @book.reviews.build
       @rate = @book.rates.build
+    end
+  end
+
+  def index
+    @books_search = Book.search(params[:search]).newest
+    if params[:category].blank?
+      @books = Book.newest.paginate page: params[:page],
+        per_page: Settings.per_page
+    else
+      @category = Category.find_by id: params[:category]
+      unless @category
+        flash[:danger] = t "record_isnt_exist"
+        redirect_to books_path
+      else
+        @books = @category.books.newest.paginate page: params[:page],
+          per_page: Settings.per_page
+      end
     end
   end
 

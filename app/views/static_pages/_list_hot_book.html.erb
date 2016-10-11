@@ -1,0 +1,33 @@
+<% @books.each do |book| %>
+  <div class="col-sm-6 col-md-3">
+    <div class="thumbnail">
+      <%= link_to image_tag(book.image), book %>
+      <div class="caption">
+        <h3><%= book.name %></h3>
+        <p><%= l book.publish_date, format: :default %></p>
+        <p>
+          <label><%= book.rating %></label>
+          <div class="aa-product-rating rating">
+            <% i = 1 %>
+            <% while i <= book.rating.floor do %>
+              <%= show_rating "star-active" %>
+              <% i += 1 %>
+            <% end %>
+            <% while i <= 5 do %>
+              <%= show_rating "" %>
+              <% i += 1 %>
+            <% end %>
+          </div>
+        </p>
+        <p class = "action-custom">
+          <%= link_to "#" do %>
+          <span class="glyphicon glyphicon-heart-empty" aria-hidden="true"></span>
+          <% end %>
+          <%= link_to book do %>
+            <span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span>
+          <% end %>
+        </p>
+      </div>
+    </div>
+  </div>
+<% end %>
