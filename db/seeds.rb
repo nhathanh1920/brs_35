@@ -32,10 +32,7 @@ publish_date = "2016-10-07"
 url = "http://stackoverflow.com/"
 categories.each do |category|
   8.times do
-    description = "#{Faker::Hacker.say_something_smart}
-      #{Faker::Hacker.say_something_smart}
-      #{Faker::Hacker.say_something_smart}
-      #{Faker::Hacker.say_something_smart}"
+    description = Faker::Lorem.paragraph
     author = Faker::Name.name
     name = Faker::Name.name
     image = "user/book1.jpg"
@@ -46,12 +43,20 @@ categories.each do |category|
   end
 end
 
-books = Book.order(:created_at).take(12)
+books = Book.order(:created_at).take(96)
 users = User.order(:created_at).take(5)
 books.each do |book|
   users.each do |user|
-    title = Faker::Hacker.say_something_smart
+    title = Faker::Name.title
     content = Faker::Lorem.paragraph
     book.reviews.create!(title: title, content: content, user_id: user.id)
+  end
+end
+
+reviews = Review.order(:created_at).take(480)
+reviews.each do |review|
+  users.each do |user|
+    content = Faker::Hacker.say_something_smart
+    review.comments.create!(content: content, user_id: user.id)
   end
 end

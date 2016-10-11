@@ -42,9 +42,12 @@
   top: 0px;
   right: 5px;
 }
-a.btn-warning:hover, a.btn-danger:hover{
+a.btn-warning:hover, a.btn-danger:hover, a.btn-info:hover {
   font-weight: normal;
 }
 .col-md-12-custom {
   margin:10px 0px;
+}
+.new_image {
+  max-width: 100%;
 }

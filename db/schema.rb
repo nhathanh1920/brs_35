@@ -20,10 +20,10 @@ ActiveRecord::Schema.define(version: 20160929090812) do
     t.string   "author"
     t.string   "url"
     t.integer  "page"
-    t.float    "rating",       limit: 24
+    t.float    "rating",       limit: 24,    default: 0.0
     t.integer  "category_id"
-    t.datetime "created_at",                 null: false
-    t.datetime "updated_at",                 null: false
+    t.datetime "created_at",                               null: false
+    t.datetime "updated_at",                               null: false
     t.index ["category_id"], name: "index_books_on_category_id", using: :btree
   end
 
