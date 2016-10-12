@@ -1,7 +1,7 @@
 <% @books.each do |book| %>
   <div class="col-sm-6 col-md-3">
     <div class="thumbnail">
-      <%= link_to image_tag(book.image), book %>
+      <%= link_to display_image(book), book %>
       <div class="caption">
         <h3 class = "book_name"><%= book.name %></h3>
         <p><%= l book.publish_date, format: :default %></p>

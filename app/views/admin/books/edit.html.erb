@@ -56,8 +56,7 @@
           <div class="row top-20">
             <div class="col-md-4 top-20">
               <div class="col-md-12 padding-0">
-                <%= image_tag @book.image,
-                  class: "img-thumbnail edit-book-img" %>
+                <%= display_image @book, "img-thumbnail edit-book-img" %>
               </div>
               <div class="col-md-12 top-20 padding-0">
                 <%= link_to t("change_button"), "javascript:;",
