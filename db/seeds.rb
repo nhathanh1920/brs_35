@@ -35,11 +35,9 @@ categories.each do |category|
     description = Faker::Lorem.paragraph
     author = Faker::Name.name
     name = Faker::Name.name
-    image = "user/book1.jpg"
     rating = Faker::Number.between(0, 5)
     category.books.create!(description: description, name: name,
-      publish_date: publish_date, author: author, image: image,
-      rating: rating, url: url)
+      publish_date: publish_date, author: author, rating: rating, url: url)
   end
 end
 
