@@ -8,7 +8,7 @@ class CreateBooks < ActiveRecord::Migration[5.0]
       t.string :author
       t.string :url
       t.integer :page
-      t.float :rating
+      t.float :rating, default: 0.0
       t.references :category, foreign_key: true
 
       t.timestamps

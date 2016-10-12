@@ -1,0 +1,96 @@
+<div class="col-md-12 top-20 padding-0">
+  <div class="col-md-12">
+    <div class="panel">
+      <div class="panel-heading">
+        <h3><%= t "add_new" %></h3>
+      </div>
+      <div class="panel-body">
+        <%= form_for [:admin, @book], html: {multipart: true},
+          url: admin_book_path do |f| %>
+          <% if @book.errors.any? %>
+            <div class="row">
+              <div class="col-md-6 mess-area-add">
+                <div class="alert alert-danger alert-custom">
+                  <button type="button" class="close closeNotify">
+                    &times;
+                  </button>
+                  <% @book.errors.full_messages.each do |msg| %>
+                    <p><%= msg %></p>
+                  <% end %>
+                </div>
+              </div>
+            </div>
+          <% end %>
+          <div class="row">
+            <div class="col-md-4">
+              <%= f.label :name %>
+              <%= f.text_field :name, placeholder: t("book_name"),
+                class: "form-control" %>
+            </div>
+            <div class="col-md-4">
+              <%= f.label :category_id %>
+              <%= f.select :category_id,
+                @categories.collect {|c| [c.name, c.id]}, {},
+                {class: "form-control reset-select"} %>
+            </div>
+            <div class="col-md-4">
+              <%= f.label :author %>
+              <%= f.text_field :author, placeholder: t("book_author"),
+                class: "form-control" %>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-4">
+              <%= f.label :url %>
+              <%= f.text_field :url, placeholder: t("book_url"),
+                class: "form-control" %>
+            </div>
+            <div class="col-md-4">
+              <%= f.label :publish_date,
+                "#{t("book_publish_date")} #{t("book_date_format")}" %>
+              <%= f.date_field :publish_date,
+                placeholder: t("book_publish_date"),
+                class: "form-control" %>
+            </div>
+          </div>
+          <div class="row top-20">
+            <div class="col-md-4 top-20">
+              <div class="col-md-12 padding-0">
+                <%= image_tag @book.image,
+                  class: "img-thumbnail edit-book-img" %>
+              </div>
+              <div class="col-md-12 top-20 padding-0">
+                <%= link_to t("change_button"), "javascript:;",
+                  class: "btn btn-info btn-mn change-image" %>
+                <%= f.file_field :image, class: "hidden", id: "hidden_input",
+                  accept: "image/jpeg,image/gif,image/png" %>
+                <span class = "new_image"></span>
+              </div>
+            </div>
+            <div class="col-md-8">
+              <%= f.label :description %>
+              <%= f.text_area :description, rows: "10",
+                class: "form-control" %>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-6 top-20 padding-0">
+              <div class="form-group col-md-3">
+                <%= button_tag type: "submit",
+                  class: "btn ripple btn-gradient btn-info" do %>
+                  <div><span><%= t "update_button" %></span></div>
+                <% end %>
+              </div>
+              <div class="form-group col-md-3">
+                <%= button_tag type: "reset",
+                  class: "btn ripple btn-gradient btn-default" do %>
+                  <div><span><%= t "reset_button" %></span></div>
+                <% end %>
+              </div>
+            </div>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
