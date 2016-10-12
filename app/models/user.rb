@@ -25,6 +25,11 @@ class User < ApplicationRecord
   has_many :rakes
   has_many :likes
   has_many :requests
+  has_many :comments
+
+  def is_user? user
+    self == user
+  end
 
   class << self
     def digest string

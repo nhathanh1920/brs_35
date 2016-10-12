@@ -1,0 +1,15 @@
+<div id="<%= @comment.id %>" >
+  <i class="comment-use"><%= @comment.user.name %></i>
+  <%= @comment.content %>
+  <span>
+    <% if current_user.is_user? @comment.user %>
+      <%= link_to t("edit"),
+        edit_book_review_comment_path(@book, @review.id, @comment.id),
+        remote: true, id: "edit-comment"  %> |
+      <%= link_to t("delete"), book_review_comment_path(@book.id,
+        @review.id, @comment.id), method: :delete,
+        data: {confirm: t("alert_confirm") },
+        remove: true, title: @comment.content %>
+    <% end %>
+  </span>
+</div>
