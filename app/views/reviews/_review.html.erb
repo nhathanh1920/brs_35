@@ -2,17 +2,61 @@
   <div class="media">
     <div class="media-left">
       <%= link_to image_tag(@review.user.image,
-        class: "media-object"), "#" %>
+        class: "media-object"), book_review_path(@book, @review.id) %>
     </div>
     <div class="media-body">
       <h4 class="media-heading">
-        <strong><%= @review.user.name %></strong>&nbsp;&nbsp;
+        <strong><%= @review.user.name %></strong>
+        &nbsp;&nbsp;
         <span>
-          <%= "#{time_ago_in_words(@review.created_at)} #{t("time_ago")}" %>
+          <%= "#{time_ago_in_words(@review.created_at)}
+            #{t("time_ago")}" %>
         </span>
       </h4>
       <p><strong><%= @review.title %></strong></p>
       <p><%= @review.content %></p>
+        <% if current_user.is_user? @review.user %>
+          <span id="review-<%= @review.id %>">
+            <%= link_to t("edit"),
+              edit_book_review_path(@book,
+              @review.id), remote: true %>
+          </span> |
+          <%= link_to t("delete"),
+            book_review_path(@book.id,
+            @review.id), method: :delete,
+            data: { confirm: t("alert_confirm") },
+            remote: true, title: @review.content %>
+        <% end %>
+    </div>
+    <h3><%= @review.comments.count %><%= t "comment" %></h3>
+    <div class="row">
+      <div class="col-md-6 mess-area-add"></div>
+    </div>
+    <div class="list-comment-<%= @review.id %>">
+      <% @review.comments.each do |comment|  %>
+        <div id="<%= comment.id %>" >
+          <i class="comment-use"><%= comment.user.name %></i>
+          <span><%= comment.content %></span>
+            <% if current_user.is_user? comment.user %>
+              <span id="comment-<%= comment.id %>">
+                <%= link_to t("edit"),
+                  edit_book_review_comment_path(@book,
+                  @review.id, comment.id), remote: true,
+                  id: "edit-comment" %>
+              </span> |
+              <%= link_to t("delete"),
+                book_review_comment_path(@book.id,
+                @review.id, comment.id), method: :delete,
+                data: { confirm: t("alert_confirm") },
+                remote: true, title: comment.content %>
+            <% end %>
+        </div>
+      <% end %>
+      <div id="comment_form_<%= @review.id %>">
+        <div class="mess-area-du"></div>
+        <%= render partial: "comments/new",
+          locals: {review: @review }%>
+      </div>
     </div>
   </div>
 </li>

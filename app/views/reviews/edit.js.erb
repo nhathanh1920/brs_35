@@ -1,0 +1,8 @@
+<% if @review.errors.any? %>
+  notify = $('.mess-area-add');
+  notify.html('<%= j render "shared/message_add", object: @review %>');
+<% else %>
+  $('#review-<%= @review.id %>').click(function(){
+    $('#new-form').replaceWith('<%= j render "reviews/edit", review: @review %>');
+  })
+<% end %>

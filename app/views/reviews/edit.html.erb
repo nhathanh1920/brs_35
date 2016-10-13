@@ -1,9 +1,0 @@
-<%= form_for [@book, @review] do |f| %>
-  <div class="title">
-    <%= f.text_field :title, placeholder: "Compose new title..." %>
-  </div>
-  <div class="field">
-    <%= f.text_area :content, placeholder: "Compose new micropost..." %>
-  </div>
-  <%= f.submit "Post", class: "btn btn-large btn-primary" %>
-<% end %>

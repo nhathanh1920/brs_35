@@ -1,0 +1,22 @@
+<div id="edit-form">
+  <h4>Edit review</h4>
+  <div class = "row">
+    <div class="col-md-6 mess-area-add"></div>
+  </div>
+  <%= form_for [:book, @review],
+    remote: true, html: {class: "aa-review-form"} do |f| %>
+    <div class="form-group">
+      <%= f.label :title %>
+      <%= f.text_field :title,
+        class: "form-control reset-input" %>
+    </div>
+    <div class="form-group">
+      <%= f.label :content %>
+      <%= f.text_area :content,
+        class: "form-control reset-input" %>
+    </div>
+    <%= f.submit t("submit_button"),
+      class: "btn btn-default aa-review-submit" do %>
+    <% end %>
+  <% end %>
+</div>

@@ -1,0 +1,10 @@
+<% if @review.errors.any? %>
+  notify = $('.mess-area-add');
+  notify.html('<%= j render "shared/message_add", object: @review %>');
+<% else %>
+  var element = document.getElementById('<%= @review.id %>');
+  element.remove();
+  $('.list-review').prepend('<%= j render "reviews/review",
+    book: @book, review: @review %>');
+  $('.reset-input').val('');
+<% end %>
